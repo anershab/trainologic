@@ -1,0 +1,16 @@
+<ul *ngFor="let item of data" >
+    
+  <div class="row">
+    <span (click)="onClick(item)"
+      class="node"
+      [ngClass]="{'parent':item.type === 'Group'}"
+      >{{ item.name }}
+    </span>
+  </div>
+
+  <app-tree-node
+    *ngIf="item.expanded && item.contacts"
+    [data]="item.contacts">
+  </app-tree-node>
+  
+</ul>
